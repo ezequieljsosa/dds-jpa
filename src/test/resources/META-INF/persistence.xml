@@ -10,6 +10,7 @@
 
 		<class> ar.edu.d2s.Habitacion</class>
 		<class>ar.edu.d2s.Casa</class>
+		<class>ar.edu.d2s.Mansion</class>
 
 		<properties>
 			<property name="hibernate.archive.autodetection" value="class" />
