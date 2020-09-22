@@ -1,10 +1,17 @@
 package ar.edu.d2s;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 public class Habitacion {
 
 	public final static String AMBIENTE = "ambiente";
 	public final static String M2 = "m2";
+
+
 
 	private String ambiente;
 	private int m2;

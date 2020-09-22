@@ -40,13 +40,14 @@ public class CasaTest {
 
 	@Before
 	public void setUp() {
-	        borrarObjetosDeClase(Casa.class        );
-	        this.casaExistente = new Casa("CasaExistente");
-			this.entityManager.getTransaction().begin();
-			this.entityManager.persist(casaExistente);
-			this.entityManager.getTransaction().commit();
+//	        borrarObjetosDeClase(Casa.class        );
+//	        this.casaExistente = new Casa("CasaExistente");
+//			this.entityManager.getTransaction().begin();
+//			this.entityManager.persist(casaExistente);
+//			this.entityManager.getTransaction().commit();
 		
 	}
+
 
 
 	@Test
@@ -58,6 +59,7 @@ public class CasaTest {
 		//Imprimirla por pantalla
 	}
 
+	@Ignore
 	@Test
 	public void testGuardarCasa() {
 		this.entityManager = entityManagerFactory.createEntityManager();
@@ -67,7 +69,7 @@ public class CasaTest {
 		
 	}
 
-
+	@Ignore
 	@Test
 	public void testActualizarCasa() {
 		this.entityManager = entityManagerFactory.createEntityManager();
@@ -78,22 +80,26 @@ public class CasaTest {
 		//Imprimirla por pantalla
 	}
 
+	@Ignore
 	@Test
 	public void testGuardarCasaConHab() {
 	    // Para esto ponemos create-drop en hbm2ddl
 		// Con esto vamos a probar las 2 direccionalidades y la bidireccional
-		this.entityManager = entityManagerFactory.createEntityManager();
+
 
         Casa miCasa = new Casa("Eze");
-        
+
+
         Habitacion living = new Habitacion();
         living.setAmbiente("living");
 
         miCasa.addHabitacion(living);
-        
+
         //Guardar y ver estructura en base de datos
+
 	}
 
+	@Ignore
     @Test
     public void testHerenciaCasa() {
         // Para esto ponemos create-drop en hbm2ddl

@@ -1,5 +1,7 @@
 package ar.edu.d2s;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,53 +10,61 @@ import javax.persistence.*;
 @Entity
 public class Casa {
 
-	public final static String PROPIETARIO = "propietario";
-	public final static String HABITACIONES = "habitaciones";
+    public final static String PROPIETARIO = "propietario";
+    public final static String HABITACIONES = "habitaciones";
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-	private String propietario;
-	
-	@Transient
-	private List<Habitacion> habitaciones;
+    private String propietario;
 
-	protected Casa() {
-		super();
-	}
+    @Transient
+    private List<Habitacion> habitaciones;
 
-	public Casa(String propietario) {
-		super();
-		this.habitaciones = new ArrayList<Habitacion>();
-		this.propietario = propietario;
-	}
+    protected Casa() {
+        super();
+    }
 
-	public void addHabitacion(Habitacion h) {
-		this.habitaciones.add(h);
-	}
+    public Casa(String propietario) {
+        super();
+        this.habitaciones = new ArrayList<Habitacion>();
+        this.propietario = propietario;
+    }
 
-	public List<Habitacion> getHabitaciones() {
-		return habitaciones;
-	}
+    public void addHabitacion(Habitacion h) {
+        this.habitaciones.add(h);
+    }
 
-	public void setHabitaciones(List<Habitacion> habitaciones) {
-		this.habitaciones = habitaciones;
-	}
+    public List<Habitacion> getHabitaciones() {
+        return habitaciones;
+    }
 
-	public String getPropietario() {
-		return propietario;
-	}
+    public void setHabitaciones(List<Habitacion> habitaciones) {
+        this.habitaciones = habitaciones;
+    }
 
-	public void setPropietario(String propietario) {
-		this.propietario = propietario;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
+    public String getPropietario() {
+        return propietario;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setPropietario(String propietario) {
+        this.propietario = propietario;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public int superficie() {
+        return this.habitaciones.stream().map(x -> x.getM2()).reduce(0, Integer::sum);
+    }
+
+    public String toString() {
+        return "Casa de " + this.propietario;
+    }
 }
